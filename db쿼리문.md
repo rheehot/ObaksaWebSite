@@ -6,7 +6,7 @@ user_password varchar(20) NOT NULL,
 user_name varchar(20) NOT NULL,
 user_age int NOT NULL,
 user_gender char(1) NOT NULL check(user_gender IN('M','F')),   
-user_phone char(11)
+user_phone char(11) UNIQUE,
 user_email varchar(50) NOT NULL UNIQUE,
 user_regdate datetime NOT NULL default NOW()
 );
