@@ -1,6 +1,6 @@
 **user 테이블**
 ```sql
-CREATE USER(
+CREATE TABLE user(
 user_ID varchar(20) PRIMARY KEY,
 user_password varchar(20) NOT NULL,
 user_name varchar(20) NOT NULL,
