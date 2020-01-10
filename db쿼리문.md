@@ -11,3 +11,15 @@ user_email varchar(50) NOT NULL UNIQUE,
 user_regdate datetime NOT NULL default NOW()
 );
 ```
+**bbs 테이블**
+```sql
+CREATE TABLE bbs(
+bbs_seq INT PRIMARY KEY,
+bbs_title varchar(20) NOT NULL,
+bbs_writer varchar(20) NOT NULL,
+bbs_content varchar(2048),
+bbs_cnt int NOT NULL default 0,  
+bbs_regdate datetime NOT NULL default NOW(),   
+FOREIGN KEY (bbs_writer) REFERENCES user (user_ID) on delete cascade
+);
+```
