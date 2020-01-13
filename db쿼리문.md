@@ -9,6 +9,7 @@ CREATE TABLE user(
 	user_gender CHAR(1) NOT NULL,
 	user_phone CHAR(11) NOT NULL UNIQUE,
 	user_email VARCHAR(50) NOT NULL UNIQUE,
+	user_address VARCHAR(100) NOT NULL,
 	user_regdate DATETIME NOT NULL DEFAULT NOW(),
 	user_available INT NOT NULL DEFAULT 1
 );	
