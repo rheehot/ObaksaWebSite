@@ -1,15 +1,17 @@
 **user 테이블**
 ```sql
 CREATE TABLE user(
-user_ID varchar(20) PRIMARY KEY,
-user_password varchar(20) NOT NULL,
-user_name varchar(20) NOT NULL,
-user_age int NOT NULL,
-user_gender char(1) NOT NULL check(user_gender IN('M','F')),   
-user_phone char(11) UNIQUE,
-user_email varchar(50) NOT NULL UNIQUE,
-user_regdate datetime NOT NULL default NOW()
-);
+	user_id VARCHAR(20) NOT NULL PRIMARY KEY,
+	user_password VARCHAR(16) NOT NULL,
+	user_name VARCHAR(20) NOT NULL,
+	user_birth CHAR(9) NOT NULL,
+	user_age INT NOT NULL,
+	user_gender CHAR(1) NOT NULL,
+	user_phone CHAR(11) NOT NULL UNIQUE,
+	user_email VARCHAR(50) NOT NULL UNIQUE,
+	user_regdate DATETIME NOT NULL DEFAULT NOW(),
+	user_available INT NOT NULL DEFAULT 1
+);	
 ```
 **bbs 테이블**
 ```sql
