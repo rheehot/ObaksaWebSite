@@ -41,3 +41,17 @@ CREATE TABLE board(
 	FOREIGN KEY (board_file) REFERENCES file(file_seq) ON UPDATE CASCADE ON DELETE SET NULL
 );
 ```
+
+**comment 테이블**
+```sql
+CREATE TABLE comment(
+	comment_seq INT PRIMARY KEY,
+	comment_board INT NOT NULL,
+	comment_writer VARCHAR(20) NOT NULL,
+	comment_content VARCHAR(512) NOT NULL,
+	comment_regdate DATETIME NOT NULL DEFAULT NOW(),
+	comment_available INT NOT NULL DEFAULT 1,
+	FOREIGN KEY (comment_board) REFERENCES board(board_seq) ON UPDATE CASCADE ON DELETE CASCADE,
+	FOREIGN KEY (comment_writer) REFERENCES user(user_id) ON UPDATE CASCADE ON DELETE CASCADE
+);
+```
