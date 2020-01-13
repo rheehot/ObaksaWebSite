@@ -13,15 +13,30 @@ CREATE TABLE user(
 	user_available INT NOT NULL DEFAULT 1
 );	
 ```
-**bbs 테이블**
+
+**file 테이블**
 ```sql
-CREATE TABLE bbs(
-bbs_seq INT PRIMARY KEY,
-bbs_title varchar(20) NOT NULL,
-bbs_writer varchar(20) NOT NULL,
-bbs_content varchar(2048),
-bbs_cnt int NOT NULL default 0,  
-bbs_regdate datetime NOT NULL default NOW(),   
-FOREIGN KEY (bbs_writer) REFERENCES user (user_ID) on delete cascade
+CREATE TABLE file(
+	file_seq INT AUTO_INCREMENT PRIMARY KEY,
+	file_path VARCHAR(100) NOT NULL,
+	file_content LONGBLOB NOT NULL,
+	file_available INT NOT NULL DEFAULT 1
+);
+```
+
+
+**board 테이블**
+```sql
+CREATE TABLE board(
+	board_seq INT AUTO_INCREMENT PRIMARY KEY,
+	board_title VARCHAR(20) NOT NULL,
+	board_writer varchar(20) NOT NULL,
+	board_content VARCHAR(1024),
+	board_regdate DATETIME NOT NULL DEFAULT NOW(),
+	board_file INT,
+	board_cnt INT NOT NULL DEFAULT 0,
+	board_available INT NOT NULL DEFAULT 1,
+	FOREIGN KEY (board_writer) REFERENCES user(user_id) ON UPDATE CASCADE ON DELETE CASCADE,
+	FOREIGN KEY (board_file) REFERENCES file(file_seq) ON UPDATE CASCADE ON DELETE SET NULL
 );
 ```
