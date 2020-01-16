@@ -44,7 +44,7 @@ CREATE TABLE board(
 **comment 테이블**
 ```sql
 CREATE TABLE comment(
-	comment_seq INT PRIMARY KEY,
+	comment_seq INT AUTO_INCREMENT PRIMARY KEY,
 	comment_board INT NOT NULL,
 	comment_writer VARCHAR(20) NOT NULL,
 	comment_content VARCHAR(512) NOT NULL,
