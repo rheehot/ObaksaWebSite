@@ -19,9 +19,11 @@ CREATE TABLE user(
 ```sql
 CREATE TABLE file(
 	file_seq INT AUTO_INCREMENT PRIMARY KEY,
+	file_board INT NOT NULL,
 	file_path VARCHAR(100) NOT NULL,
 	file_content LONGBLOB NOT NULL,
 	file_available INT NOT NULL DEFAULT 1
+	FOREIGN KEY (file_board) REFERENCES board(board_seq) ON UPDATE CASCADE ON DELETE CASCADE
 );
 ```
 
@@ -34,11 +36,9 @@ CREATE TABLE board(
 	board_writer varchar(20) NOT NULL,
 	board_content VARCHAR(1024),
 	board_regdate DATETIME NOT NULL DEFAULT NOW(),
-	board_file INT,
 	board_cnt INT NOT NULL DEFAULT 0,
 	board_available INT NOT NULL DEFAULT 1,
-	FOREIGN KEY (board_writer) REFERENCES user(user_id) ON UPDATE CASCADE ON DELETE CASCADE,
-	FOREIGN KEY (board_file) REFERENCES file(file_seq) ON UPDATE CASCADE ON DELETE SET NULL
+	FOREIGN KEY (board_writer) REFERENCES user(user_id) ON UPDATE CASCADE ON DELETE CASCADE
 );
 ```
 
