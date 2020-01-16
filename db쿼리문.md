@@ -22,7 +22,7 @@ CREATE TABLE file(
 	file_board INT NOT NULL,
 	file_path VARCHAR(100) NOT NULL,
 	file_content LONGBLOB NOT NULL,
-	file_available INT NOT NULL DEFAULT 1
+	file_available INT NOT NULL DEFAULT 1,
 	FOREIGN KEY (file_board) REFERENCES board(board_seq) ON UPDATE CASCADE ON DELETE CASCADE
 );
 ```
