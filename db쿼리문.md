@@ -54,3 +54,14 @@ CREATE TABLE comment(
 	FOREIGN KEY (comment_writer) REFERENCES user(user_id) ON UPDATE CASCADE ON DELETE CASCADE
 );
 ```
+
+**product 테이블**
+```
+create table product(
+	product_id INT AUTO_INCREMENT PRIMARY KEY,
+	product_name VARCHAR(50) NOT NULL,
+	product_price INT NOT NULL DEFAULT 0,
+	product_desc VARCHAR(500),
+	product_url VARCHAR(500) NOT NULL
+);
+```
