@@ -65,3 +65,14 @@ create table product(
 	product_url VARCHAR(500) NOT NULL
 );
 ```
+**cart 테이블**
+```
+create table cart(	
+cart_id int AUTO_INCREMENT PRIMARY KEY,
+cart_user VARCHAR(20) NOT NULL,
+cart_product int not null,
+cart_amount int not null default 0,
+FOREIGN KEY (cart_user) REFERENCES user(user_id) ON UPDATE CASCADE ON DELETE CASCADE,
+FOREIGN KEY (cart_product) REFERENCES product(product_id) ON UPDATE CASCADE ON DELETE CASCADE
+);
+```
